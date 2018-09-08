@@ -5,6 +5,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import Fachkonzept.Product;
 import Fachkonzept.Spiel;
 
 /**
@@ -21,6 +22,7 @@ public class MyResource {
      */
 	
 	private static Spiel s;
+	private static Product p;
 	
     @GET
     @Path("ping")
@@ -57,5 +59,15 @@ public class MyResource {
     	}
     	s.newRound(2);
         return "" + s.getRound();
+    }
+    
+    @GET
+    @Path("products")
+    @Produces(MediaType.TEXT_PLAIN)			//Application_Json
+    public String get_Prod_id() {
+    	if(p == null) {
+    		p = new Product(1, "Milch");
+    	}
+        return "ID: " + p.getProd_id() + "  Name: " + p.getProd_name();
     }
 }
