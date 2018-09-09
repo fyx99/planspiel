@@ -5,7 +5,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import Fachkonzept.Product;
+import Fachkonzept.ProductSet;
 import Fachkonzept.Spiel;
 
 /**
@@ -22,7 +22,7 @@ public class MyResource {
      */
 	
 	private static Spiel s;
-	private static Product p;
+	private static ProductSet ps;
 	
     @GET
     @Path("ping")
@@ -64,10 +64,18 @@ public class MyResource {
     @GET
     @Path("products")
     @Produces(MediaType.TEXT_PLAIN)			//Application_Json
-    public String get_Prod_id() {
-    	if(p == null) {
-    		p = new Product(1, "Milch");
+    public String show_Products() {
+    	
+    	if(ps == null) {
+    		ps = new ProductSet(5);
     	}
-        return "ID: " + p.getProd_id() + "  Name: " + p.getProd_name();
+    	
+    	String s="";
+    	
+       for (int i = 0; i < 5; i++) {
+    	   s += "ID: "+ ps.get_PS()[i].prod_id + "  Bezeichnung: " + ps.get_PS()[i].prod_name + "\n";
+    	          }
+       return s;
+       
     }
 }
