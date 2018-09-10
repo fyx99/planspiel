@@ -16,8 +16,9 @@ public class Spiel {
 		this.round = round;
 	}
 
-	public void newRound() {
+	public int newRound() {
 		round++;
+		return round;
 	}
 
 	public void newRound(int n) {
