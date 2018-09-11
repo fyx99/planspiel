@@ -2,7 +2,7 @@ package Fachkonzept;
 
 public class ProductSet{
 	
-	Product[] ps;
+	public Product[] ps;
 	
 	public ProductSet(int n) {
 		
