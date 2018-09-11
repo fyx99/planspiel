@@ -28,7 +28,7 @@ public class Angebot{
 	}
 	
 	public void setMenge(int menge) {
-		this.menge -= menge;
+		this.menge = menge;
 	}
 	
 	public double getPreis() {

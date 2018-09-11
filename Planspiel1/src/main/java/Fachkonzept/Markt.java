@@ -23,7 +23,7 @@ public class Markt{
 		    if (angebote.get(i).getId() == (gek_angebot.getId())) {
 		        //vorh. Menge > gek. Menge
 		    	if(angebote.get(i).getMenge() > gek_angebot.getMenge() ) {
-		    		angebote.get(i).setMenge(gek_angebot.getMenge());     //vorhandene Menge um gekaufte Menge verringer
+		    		angebote.get(i).setMenge(angebote.get(i).getMenge() - gek_angebot.getMenge());     //vorhandene Menge um gekaufte Menge verringer
 		    	}
 		    	//vorh. Menge == gek_Menge
 		    	else if(angebote.get(i).getMenge() == gek_angebot.getMenge()) {

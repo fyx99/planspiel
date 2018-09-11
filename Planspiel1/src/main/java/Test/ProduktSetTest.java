@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import Fachkonzept.ProduktSet;
 
-class ProductSetTest {
+class ProduktSetTest {
 
 	ProduktSet testClass = new ProduktSet(5);
 	
