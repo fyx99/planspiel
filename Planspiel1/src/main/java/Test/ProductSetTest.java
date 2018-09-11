@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import Fachkonzept.ProductSet;
+import Fachkonzept.ProduktSet;
 
 class ProductSetTest {
 
-	ProductSet testClass = new ProductSet(5);
+	ProduktSet testClass = new ProduktSet(5);
 	
 	@Test
 	void test() {

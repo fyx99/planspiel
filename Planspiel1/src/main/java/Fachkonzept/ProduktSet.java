@@ -1,23 +1,23 @@
 package Fachkonzept;
 
-public class ProductSet{
+public class ProduktSet{
 	
-	public Product[] ps;
+	public Produkt[] ps;
 	
-	public ProductSet(int n) {
+	public ProduktSet(int n) {
 		
 		String[] p_names = {
 				"Tisch", "Stuhl", "Schrank", "Bett", "Esstisch"
 		};
 		
-		this.ps = new Product[n];
+		this.ps = new Produkt[n];
 		for (int i = 0; i < ps.length; i++) {
-			ps[i] = new Product(i+1, p_names[i]);
+			ps[i] = new Produkt(i+1, p_names[i]);
 		}
 		
 	}
 	
-	public Product[] get_PS() {
+	public Produkt[] get_PS() {
 		return this.ps;
 	}
 }

@@ -6,7 +6,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import Fachkonzept.ProductSet;
+import Fachkonzept.ProduktSet;
 import Fachkonzept.Spiel;
 import Fachkonzept.Unternehmen;
 
@@ -24,7 +24,7 @@ public class MyResource {
      */
 	
 	private static Spiel s;
-	private static ProductSet ps;
+	private static ProduktSet ps;
 	
     @GET
     @Path("ping")
@@ -92,7 +92,7 @@ public class MyResource {
     public String show_Products() {
     	
     	if(ps == null) {
-    		ps = new ProductSet(5);
+    		ps = new ProduktSet(5);
     	}
     	
     	String s="";
