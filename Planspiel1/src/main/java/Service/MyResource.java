@@ -2,11 +2,13 @@ package Service;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import Fachkonzept.ProductSet;
 import Fachkonzept.Spiel;
+import Fachkonzept.Unternehmen;
 
 /**
  * Root resource (exposed at "myresource" path)
@@ -32,33 +34,56 @@ public class MyResource {
     }
     
     @GET
-    @Path("roundnumber")
+    @Path("neuesspiel")
     @Produces(MediaType.TEXT_PLAIN)			//Application_Json
-    public String getRN() {
-
-        return "" + s.getRound();
+    public String neuesSpiel() {
+    	
+    	s = new Spiel();
+    	
+    	
+        return "neues spiel erstellt";
     }
     
     @GET
-    @Path("newround")
+    @Path("neuesunternehmen/{name}")
     @Produces(MediaType.TEXT_PLAIN)			//Application_Json
-    public String getNR() {
-    	if(s == null) {
-    		s = new Spiel();
+    public String neuesSpiel(@PathParam("name") String name) {
+    	
+    	if(s != null) {
+    		
+    		s.unternehmenHinzufuegen(new Unternehmen(name));
     	}
-    	s.newRound();
-        return "" + s.getRound();
+    	
+    	
+        return "neues unternehmen mit name " + name;
     }
     
     @GET
-    @Path("newround2")
+    @Path("spielstarten")
     @Produces(MediaType.TEXT_PLAIN)			//Application_Json
-    public String getNR2() {
-    	if(s == null) {
-    		s = new Spiel();
-    	}
-    	s.newRound(2);
-        return "" + s.getRound();
+    public String spielStart() {
+    	//
+    	s.rundenStart();
+    	
+    	return "spiel start";
+    }
+    
+    @GET
+    @Path("zugbeendet")
+    @Produces(MediaType.TEXT_PLAIN)			//Application_Json
+    public String zugBeendet() {
+    	//
+    	return s.zugBeendet();
+    
+    }
+    
+    @GET
+    @Path("stats")
+    @Produces(MediaType.TEXT_PLAIN)			//Application_Json
+    public String gameStats() {
+    	//
+    	return s.gameStatsHelper();
+    
     }
     
     @GET
