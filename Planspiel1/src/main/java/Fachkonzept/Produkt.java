@@ -15,5 +15,7 @@ public class Produkt{
 		this.prod_name = name;
 	}
 	
+	private Produktionsmatrix m;
+	
 	
 }
