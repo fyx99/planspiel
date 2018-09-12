@@ -3,13 +3,13 @@ package Fachkonzept;
 public class Maschine {
 	
 	private int id;
-	private String bez;
-	private double kapazitaet;
+	private String name;
+	private int kapazitaet;
 		
-	public Maschine(String bez, float kapa ) {
+	public Maschine(String bez, int k ) {
 		this.id++;
-		this.bez= bez;
-		this.kapazitaet = kapa;
+		this.name= bez;
+		this.kapazitaet = k;
 	}
 
 	public int getId() {
@@ -20,21 +20,21 @@ public class Maschine {
 		this.id = id;
 	}
 
-	public String getBez() {
-		return bez;
+	public String getName() {
+		return name;
 	}
 
-	public void setBez(String bez) {
-		this.bez = bez;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public double getKapa() {
+	public int getKapazitaet() {
 		return kapazitaet;
 	}
 
-	public void setKapa(double d) {
-		this.kapazitaet = d;
-	} 
+	public void setKapazitaet(int kapazitaet) {
+		this.kapazitaet = kapazitaet;
+	}
 	
 	
 	
