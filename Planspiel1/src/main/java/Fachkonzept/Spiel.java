@@ -8,6 +8,7 @@ public class Spiel {
 
 	int runde = 1;
 	
+	
 	public Spiel() {
 		
 	}
@@ -80,6 +81,8 @@ public class Spiel {
 
 	}
 	
+	
+	
 	public String gameStatsHelper() {
 		String k ="";
 		for (int i = 0; i < unternehmen.size(); i++) {
@@ -88,5 +91,15 @@ public class Spiel {
 		k += ende + "!";
 		return k;
 	}
+
+	public Unternehmen getNaechstesUnternehmen() {
+		return naechstesUnternehmen;
+	}
+
+	public void setNaechstesUnternehmen(Unternehmen naechstesUnternehmen) {
+		this.naechstesUnternehmen = naechstesUnternehmen;
+	}
+	
+	
 
 }

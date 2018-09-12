@@ -16,7 +16,6 @@ class AngebotTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		this.p1 = new Produkt(1, "Tisch");
-		this.a1 = new Angebot(p1, 12, 25.2);
 		a1.setMenge(15);//zum Konstruktor abweichende Menge testen
 	}
 

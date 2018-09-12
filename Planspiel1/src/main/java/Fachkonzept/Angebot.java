@@ -2,7 +2,7 @@ package Fachkonzept;
 
 public class Angebot{
 	
-	private double preis;
+	private float preis;
 	private int id;
 	private int menge;
 	
@@ -11,8 +11,8 @@ public class Angebot{
 	public Angebot() {
 		
 	}	
-	
-	public Angebot(Markteinheit m, int menge, double preis) {
+	//preis pro einheit
+	public Angebot(Markteinheit m, int menge, float preis) {
 		this.preis = preis;
 		this.menge = menge;
 		this.m = m;
@@ -31,7 +31,19 @@ public class Angebot{
 		this.menge = menge;
 	}
 	
-	public double getPreis() {
+	public float getPreis() {
 		return this.preis;
+	}
+	
+	public Angebot kaufen (int menge) {
+		
+		this.menge -= menge;
+		
+		if(menge <= 0) {
+			return null;
+		}
+		return this;
+		
+		
 	}
 }

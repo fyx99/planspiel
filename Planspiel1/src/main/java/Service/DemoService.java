@@ -6,6 +6,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import Fachkonzept.Beschaffungsmarkt;
 import Fachkonzept.ProduktSet;
 import Fachkonzept.Spiel;
 import Fachkonzept.Unternehmen;
@@ -14,7 +15,7 @@ import Fachkonzept.Unternehmen;
  * Root resource (exposed at "myresource" path)
  */
 @Path("demo")
-public class MyResource {
+public class DemoService {
 
     /**
      * Method handling HTTP GET requests. The returned object will be sent
@@ -85,22 +86,14 @@ public class MyResource {
     	return s.gameStatsHelper();
     
     }
+
     
     @GET
-    @Path("products")
-    @Produces(MediaType.TEXT_PLAIN)			//Application_Json
-    public String show_Products() {
-    	
-    	if(ps == null) {
-    		ps = new ProduktSet(5);
-    	}
-    	
-    	String s="";
-    	
-       for (int i = 0; i < 5; i++) {
-    	   s += "ID: "+ ps.get_PS()[i].prod_id + "  Bezeichnung: " + ps.get_PS()[i].prod_name + "\n";
-    	          }
-       return s;
-       
+    @Path("bmarkt")
+    @Produces(MediaType.APPLICATION_JSON)			//Application_Json
+    public Beschaffungsmarkt getBMarkt() {
+    	//
+    	return s.getNaechstesUnternehmen().getBmarkt();
+    
     }
 }

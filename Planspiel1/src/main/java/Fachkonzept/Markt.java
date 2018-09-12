@@ -10,38 +10,43 @@ public abstract class  Markt{
 	public void add_angebot(Angebot neu_angebot) {
 		this.angebote.add(neu_angebot);
 	}
+
+	
+	public void kaufen(Angebot a, int menge, Unternehmen k) {
+		a.setMenge(menge);
+		Angebot verbleibendesAngebot = a.kaufen(menge);
+		angebote.remove(a);
+		if(verbleibendesAngebot != null) {
+			angebote.add(verbleibendesAngebot);
+		}
+		k.verringereKapital(a.getPreis() * menge);
+		//unternehmen bezahlt angebot
+		
+	}
+	
+	public void kaufen(Angebot a, int menge, Simulation s) {
+		a.setMenge(menge);
+		Angebot verbleibendesAngebot = a.kaufen(menge);
+		angebote.remove(a);
+		if(verbleibendesAngebot != null) {
+			angebote.add(verbleibendesAngebot);
+		}
+		//simulation muss nicht bezahlen :)
+		
+	}
+	
+	public void anbieten(Angebot a) {
+		angebote.add(a);
+	}
+	
 	
 	public List<Angebot> getAngebote(){
 		return this.angebote;
 	}
-	//so funktioniert des aber nicht :D
-	/*
-	public void kaufeAngebot(Angebot gek_angebot) {
-		
-		//Angebot mit der ID suchen
-		int len=angebote.size();
-		for(int i=0; i<len; i++) {
-		    if (angebote.get(i).getId() == (gek_angebot.getId())) {
-		        //vorh. Menge > gek. Menge
-		    	if(angebote.get(i).getMenge() > gek_angebot.getMenge() ) {
-		    		angebote.get(i).setMenge(angebote.get(i).getMenge() - gek_angebot.getMenge());     //vorhandene Menge um gekaufte Menge verringer
-		    	}
-		    	//vorh. Menge == gek_Menge
-		    	else if(angebote.get(i).getMenge() == gek_angebot.getMenge()) {
-		    		angebote.remove(i);	//Angebot vom Markt wegnehmen
-		    	}
-		    	//vorh. Menge < gek. Menge
-		    	else {
-		    		//Errorhandling
-		    	}
-		    }
-		}
-		
+
+	public void setAngebote(List<Angebot> angebote) {
+		this.angebote = angebote;
 	}
-	
-	public void verkaufeAngebot(Angebot vk_angebot) {
-		angebote.add(vk_angebot);
-	}
-	
-	*/
+
+
 }
