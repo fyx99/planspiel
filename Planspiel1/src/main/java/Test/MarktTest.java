@@ -9,8 +9,6 @@ import Fachkonzept.Produkt;
 
 class MarktTest {
 	
-	private Produkt p1 = new Produkt(1, "Tisch");
-	private Angebot a1 = new Angebot();
 	
 	@Test
 	void test() {

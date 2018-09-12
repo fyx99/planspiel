@@ -7,8 +7,8 @@ public abstract class  Markt{
 	
 	private List<Angebot> angebote = new ArrayList<Angebot>(); 
 	
-	public void add_angebot(Angebot neu_angebot) {
-		this.angebote.add(neu_angebot);
+	public void angebotHinzu(Angebot a) {
+		this.angebote.add(a);
 	}
 
 	

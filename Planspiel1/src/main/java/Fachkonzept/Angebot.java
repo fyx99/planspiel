@@ -1,5 +1,8 @@
 package Fachkonzept;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Angebot{
 	
 	private float preis;
@@ -11,15 +14,15 @@ public class Angebot{
 	
 	private Markt markttyp;
 	
-	public Angebot() {
-		
-	}	
+	private static List<Angebot> alleAngebote = new ArrayList<>();
+
 	//preis pro einheit
 	public Angebot(Markteinheit m, int menge, float preis) {
 		this.preis = preis;
 		this.menge = menge;
 		this.markteinheit = m;
 		this.id = ++angebotsnummer;
+		alleAngebote.add(this);
 	}
 	
 	public int getId() {
@@ -63,6 +66,14 @@ public class Angebot{
 	}
 	public void setPreis(float preis) {
 		this.preis = preis;
+	}
+	
+	public static Angebot findeAngebot(int id) {
+		for (int i = 0; i < alleAngebote.size(); i++) {
+			if(alleAngebote.get(i).getId() == id)
+				return alleAngebote.get(i);
+		}
+		return null;
 	}
 	
 	

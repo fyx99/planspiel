@@ -7,7 +7,8 @@ public class Maschine extends Markteinheit{
 	private int kapazitaet;
 		
 	public Maschine(String bez, int k ) {
-		this.id++;
+		super();
+		this.id = nummer;	//um eine id zu haben
 		this.name= bez;
 		this.kapazitaet = k;
 	}

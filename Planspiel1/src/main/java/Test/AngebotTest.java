@@ -9,13 +9,13 @@ import Fachkonzept.Angebot;
 import Fachkonzept.Produkt;
 
 class AngebotTest {
-
+/*
 	private Produkt p1;
 	private Angebot a1;
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		this.p1 = new Produkt(1, "Tisch");
+//		this.p1 = new Produkt(1, "Tisch");
 		a1.setMenge(15);//zum Konstruktor abweichende Menge testen
 	}
 
@@ -25,5 +25,5 @@ class AngebotTest {
 		assertTrue(this.a1.getMenge() == 15);
 		assertTrue(this.a1.getPreis() == 25.2);
 	}
-
+*/
 }

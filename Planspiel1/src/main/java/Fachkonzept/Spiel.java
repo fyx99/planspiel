@@ -32,22 +32,12 @@ public class Spiel {
 		return unternehmen;
 	}
 
-	public void setUnternehmen(List<Unternehmen> unternehmen) {
-		this.unternehmen = unternehmen;
-	}
-
-	public void unternehmenHinzufuegen(Unternehmen u) {
-
-		this.unternehmen.add(u);
-	}
-
-	public int getRunde() {
-		return runde;
-	}
-
 	private Stack<Unternehmen> naechsteUnternehmen;
 
 	public void rundenStart() {
+		
+		//wir simulieren jetzt mal am rundenanfang
+		Simulation.simuliere(this, unternehmen);
 
 		this.naechsteUnternehmen = new Stack<Unternehmen>();
 		for (int i = 0; i < unternehmen.size(); i++) {
@@ -63,8 +53,6 @@ public class Spiel {
 
 	public String zugBeendet() {
 		
-		
-		
 		//nächster ist dran
 
 		if (!naechsteUnternehmen.isEmpty()) {
@@ -74,7 +62,6 @@ public class Spiel {
 		else {
 			//alle durch -> Simulation
 			naechstesUnternehmen = null;
-			Simulation.simuliere(unternehmen);
 			neueRunde();
 			return "simluiere";
 		}
@@ -100,6 +87,17 @@ public class Spiel {
 		this.naechstesUnternehmen = naechstesUnternehmen;
 	}
 	
-	
+	public void setUnternehmen(List<Unternehmen> unternehmen) {
+		this.unternehmen = unternehmen;
+	}
+
+	public void unternehmenHinzufuegen(Unternehmen u) {
+
+		this.unternehmen.add(u);
+	}
+
+	public int getRunde() {
+		return runde;
+	}
 
 }
