@@ -4,9 +4,12 @@ public class Angebot{
 	
 	private float preis;
 	private int id;
+	private static int angebotsnummer = 0;
 	private int menge;
 	
-	private Markteinheit m;
+	private Markteinheit markteinheit;
+	
+	private Markt markttyp;
 	
 	public Angebot() {
 		
@@ -15,8 +18,8 @@ public class Angebot{
 	public Angebot(Markteinheit m, int menge, float preis) {
 		this.preis = preis;
 		this.menge = menge;
-		this.m = m;
-		this.id++;
+		this.markteinheit = m;
+		this.id = ++angebotsnummer;
 	}
 	
 	public int getId() {
@@ -46,4 +49,21 @@ public class Angebot{
 		
 		
 	}
+	public Markt getMarkttyp() {
+		return markttyp;
+	}
+	public void setMarkttyp(Markt markttyp) {
+		this.markttyp = markttyp;
+	}
+	public Markteinheit getMarkteinheit() {
+		return markteinheit;
+	}
+	public void setMarkteinheit(Markteinheit markteinheit) {
+		this.markteinheit = markteinheit;
+	}
+	public void setPreis(float preis) {
+		this.preis = preis;
+	}
+	
+	
 }

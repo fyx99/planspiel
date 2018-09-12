@@ -1,5 +1,7 @@
 package Fachkonzept;
 
+import java.util.List;
+
 public class Verkaufsmarkt extends Markt {
 	
 	
@@ -8,5 +10,14 @@ public class Verkaufsmarkt extends Markt {
 	public Verkaufsmarkt() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	@Override
+	public void kaufen(Angebot a, int menge, Simulation s) {
+		// TODO Auto-generated method stub
+		super.kaufen(a, menge, s);
+
+		//hier kauft nur die simulation, wenn die kauft muss es nirgens gespeichert werden fürn anfang
+	}
+	
 
 }

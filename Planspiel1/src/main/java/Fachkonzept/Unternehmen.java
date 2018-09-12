@@ -1,5 +1,10 @@
 package Fachkonzept;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Unternehmen {
 	
 	private String name;
@@ -9,6 +14,10 @@ public class Unternehmen {
 	private Verkaufsmarkt vmarkt = new Verkaufsmarkt();
 	
 	private Maschinenmarkt mmarkt = new Maschinenmarkt();
+
+	private Map<String, Integer> maschinen = new HashMap<String, Integer>();	//jeweils mit mengen
+	private Map<String, Integer> materialien = new HashMap<String, Integer>();	//für den anfang string achtung nichts falsches einfügen :D
+	private Map<String, Integer> produkte = new HashMap<String, Integer>();
 
 	public Unternehmen(String name) {
 
@@ -61,8 +70,24 @@ public class Unternehmen {
 		this.mmarkt = mmarkt;
 	}
 	
-	
-	
+	public void maschineHinzu(Maschine m, Integer menge) {
+		this.maschinen.putIfAbsent(m.getClass().getName(), menge);
+	}	
+	public void materialHinzu(Material m, Integer menge) {
+		this.materialien.putIfAbsent(m.getClass().getName(), menge);
+	}	
+	public void maschineEntfernen(Maschine m, Integer menge) {
+		this.maschinen.replace(m.getClass().getName(), menge);
+	}	
+	public void materialEntfernen(Material m, Integer menge) {
+		this.materialien.replace(m.getClass().getName(), menge);
+	}
+	public void produktHinzu(Produkt m, Integer menge) {
+		this.produkte.putIfAbsent(m.getClass().getName(), menge);
+	}	
+	public void produktEntfernen(Produkt m, Integer menge) {
+		this.produkte.replace(m.getClass().getName(), menge);
+	}	
 	
 
 }

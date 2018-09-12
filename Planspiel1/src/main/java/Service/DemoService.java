@@ -12,7 +12,9 @@ import javax.ws.rs.core.MediaType;
 
 import Fachkonzept.Angebot;
 import Fachkonzept.Beschaffungsmarkt;
+import Fachkonzept.Maschine;
 import Fachkonzept.Maschinenmarkt;
+import Fachkonzept.Material;
 import Fachkonzept.ProduktSet;
 import Fachkonzept.Spiel;
 import Fachkonzept.Unternehmen;
@@ -130,6 +132,28 @@ public class DemoService {
     	//
     	s.getNaechstesUnternehmen().getVmarkt().setAngebote(angebote);
     	
+    
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("angebotkaufen/{menge}")
+    @Produces(MediaType.APPLICATION_JSON)		
+    public void kaufeAngebot(Angebot angebot, @PathParam("menge") int menge) {
+    	//erstmal bezahlen
+    	
+    	
+    	if(angebot.getMarkteinheit() instanceof Maschine) {
+    		s.getNaechstesUnternehmen().getMmarkt().kaufen(angebot, menge, s.getNaechstesUnternehmen());
+    		
+    	}
+    	else if(angebot.getMarkteinheit() instanceof Material) {
+
+    		s.getNaechstesUnternehmen().getMmarkt().kaufen(angebot, menge, s.getNaechstesUnternehmen());
+    	}
+    	else {
+    		//sollte nicht passieren
+    	}
     
     }
 }

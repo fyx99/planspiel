@@ -13,7 +13,6 @@ public abstract class  Markt{
 
 	
 	public void kaufen(Angebot a, int menge, Unternehmen k) {
-		a.setMenge(menge);
 		Angebot verbleibendesAngebot = a.kaufen(menge);
 		angebote.remove(a);
 		if(verbleibendesAngebot != null) {
@@ -25,13 +24,13 @@ public abstract class  Markt{
 	}
 	
 	public void kaufen(Angebot a, int menge, Simulation s) {
-		a.setMenge(menge);
 		Angebot verbleibendesAngebot = a.kaufen(menge);
 		angebote.remove(a);
 		if(verbleibendesAngebot != null) {
 			angebote.add(verbleibendesAngebot);
 		}
 		//simulation muss nicht bezahlen :)
+		//die einlagerung ist in der sub class
 		
 	}
 	
