@@ -5,8 +5,10 @@ public class Unternehmen {
 	private String name;
 
 	private Beschaffungsmarkt bmarkt = new Beschaffungsmarkt();
-	
+
 	private Verkaufsmarkt vmarkt = new Verkaufsmarkt();
+	
+	private Maschinenmarkt mmarkt = new Maschinenmarkt();
 
 	public Unternehmen(String name) {
 
@@ -49,6 +51,14 @@ public class Unternehmen {
 
 	public void setVmarkt(Verkaufsmarkt vmarkt) {
 		this.vmarkt = vmarkt;
+	}
+
+	public Maschinenmarkt getMmarkt() {
+		return mmarkt;
+	}
+
+	public void setMmarkt(Maschinenmarkt mmarkt) {
+		this.mmarkt = mmarkt;
 	}
 	
 	

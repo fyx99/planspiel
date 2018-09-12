@@ -1,15 +1,22 @@
 package Service;
 
+import java.util.List;
+
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import Fachkonzept.Angebot;
 import Fachkonzept.Beschaffungsmarkt;
+import Fachkonzept.Maschinenmarkt;
 import Fachkonzept.ProduktSet;
 import Fachkonzept.Spiel;
 import Fachkonzept.Unternehmen;
+import Fachkonzept.Verkaufsmarkt;
 
 /**
  * Root resource (exposed at "myresource" path)
@@ -61,7 +68,7 @@ public class DemoService {
     
     @GET
     @Path("spielstarten")
-    @Produces(MediaType.TEXT_PLAIN)			//Application_Json
+    @Produces(MediaType.TEXT_PLAIN)		
     public String spielStart() {
     	//
     	s.rundenStart();
@@ -71,7 +78,7 @@ public class DemoService {
     
     @GET
     @Path("zugbeendet")
-    @Produces(MediaType.TEXT_PLAIN)			//Application_Json
+    @Produces(MediaType.TEXT_PLAIN)		
     public String zugBeendet() {
     	//
     	return s.zugBeendet();
@@ -80,7 +87,7 @@ public class DemoService {
     
     @GET
     @Path("stats")
-    @Produces(MediaType.TEXT_PLAIN)			//Application_Json
+    @Produces(MediaType.TEXT_PLAIN)			
     public String gameStats() {
     	//
     	return s.gameStatsHelper();
@@ -90,10 +97,39 @@ public class DemoService {
     
     @GET
     @Path("bmarkt")
-    @Produces(MediaType.APPLICATION_JSON)			//Application_Json
+    @Produces(MediaType.APPLICATION_JSON)		
     public Beschaffungsmarkt getBMarkt() {
     	//
     	return s.getNaechstesUnternehmen().getBmarkt();
+    
+    }
+    
+    @GET
+    @Path("vmarkt")
+    @Produces(MediaType.APPLICATION_JSON)		
+    public Verkaufsmarkt getVMarkt() {
+    	//
+    	return s.getNaechstesUnternehmen().getVmarkt();
+    
+    }
+    
+    @GET
+    @Path("mmarkt")
+    @Produces(MediaType.APPLICATION_JSON)		
+    public Maschinenmarkt getMMarkt() {
+    	//
+    	return s.getNaechstesUnternehmen().getMmarkt();
+    
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("setangebote")
+    @Produces(MediaType.APPLICATION_JSON)		
+    public void setAngebote(List<Angebot> angebote) {
+    	//
+    	s.getNaechstesUnternehmen().getVmarkt().setAngebote(angebote);
+    	
     
     }
 }

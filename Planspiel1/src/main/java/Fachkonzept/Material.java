@@ -1,6 +1,4 @@
-package material;
-
-import Fachkonzept.Markteinheit;
+package Fachkonzept;
 
 public abstract class Material extends Markteinheit{
 	

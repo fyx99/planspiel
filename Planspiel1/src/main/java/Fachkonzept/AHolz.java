@@ -1,4 +1,4 @@
-package material;
+package Fachkonzept;
 
 public class AHolz extends Material {
 
