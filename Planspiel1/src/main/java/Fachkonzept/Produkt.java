@@ -1,6 +1,6 @@
 package Fachkonzept;
 
-public class Produkt{
+public class Produkt extends Markteinheit{
 	
 	public int prod_id;
 	public String prod_name;

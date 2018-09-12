@@ -3,7 +3,7 @@ package Fachkonzept;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Markt{
+public abstract class  Markt{
 	
 	private List<Angebot> angebote = new ArrayList<Angebot>(); 
 	
@@ -14,7 +14,8 @@ public class Markt{
 	public List<Angebot> getAngebote(){
 		return this.angebote;
 	}
-	
+	//so funktioniert des aber nicht :D
+	/*
 	public void kaufeAngebot(Angebot gek_angebot) {
 		
 		//Angebot mit der ID suchen
@@ -41,4 +42,6 @@ public class Markt{
 	public void verkaufeAngebot(Angebot vk_angebot) {
 		angebote.add(vk_angebot);
 	}
+	
+	*/
 }

@@ -6,16 +6,16 @@ public class Angebot{
 	private int id;
 	private int menge;
 	
-	private Produkt prod;
+	private Markteinheit m;
 	
 	public Angebot() {
 		
 	}	
 	
-	public Angebot(Produkt prod, int menge, double preis) {
+	public Angebot(Markteinheit m, int menge, double preis) {
 		this.preis = preis;
 		this.menge = menge;
-		this.prod = prod;
+		this.m = m;
 		this.id++;
 	}
 	

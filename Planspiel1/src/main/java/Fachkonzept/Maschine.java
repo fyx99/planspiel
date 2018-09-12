@@ -1,6 +1,6 @@
 package Fachkonzept;
 
-public class Maschine {
+public class Maschine extends Markteinheit{
 	
 	private int id;
 	private String name;

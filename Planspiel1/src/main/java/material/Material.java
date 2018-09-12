@@ -1,6 +1,8 @@
 package material;
 
-public abstract class Material {
+import Fachkonzept.Markteinheit;
+
+public abstract class Material extends Markteinheit{
 	
 	
 	private int quality;
