@@ -12,7 +12,7 @@ class ProduktSetTest {
 	
 	@Test
 	void test() {
-		assertEquals("Tisch", testClass.ps[0].prod_name, "Falscher Produktname im ProductSet");
+		assertEquals("Tisch", testClass.get_PS()[0].prod_name, "Falscher Produktname im ProductSet");
 		
 	}
 

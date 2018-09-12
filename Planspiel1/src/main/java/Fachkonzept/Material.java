@@ -7,9 +7,6 @@ public class Material {
 	private String qualit;
 	
 	
-	public Material() {
-		
-	}
 	
 	public Material(String p_bez, String p_qualit) {
 		this.bez = p_bez;

@@ -6,9 +6,6 @@ public class Produkt{
 	public String prod_name;
 	
 	
-	public Produkt() {
-		
-	}
 	
 	public Produkt(int id, String name) {
 		this.prod_id = id;

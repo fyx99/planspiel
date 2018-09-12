@@ -4,14 +4,12 @@ public class Maschine {
 	
 	private int id;
 	private String bez;
-	private float kapa;
-	
-	public Maschine() {}
-	
+	private double kapazitaet;
+		
 	public Maschine(String bez, float kapa ) {
 		this.id++;
 		this.bez= bez;
-		this.kapa = kapa;
+		this.kapazitaet = kapa;
 	}
 
 	public int getId() {
@@ -30,12 +28,12 @@ public class Maschine {
 		this.bez = bez;
 	}
 
-	public float getKapa() {
-		return kapa;
+	public double getKapa() {
+		return kapazitaet;
 	}
 
-	public void setKapa(float kapa) {
-		this.kapa = kapa;
+	public void setKapa(double d) {
+		this.kapazitaet = d;
 	} 
 	
 	
