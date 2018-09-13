@@ -10,8 +10,11 @@
     <p><a href="webapi/demo/spielstarten">spiel starten</a></p>
     <p><a href="webapi/demo/zugbeendet">zug beendet</a></p>
     <p><a href="webapi/demo/stats">stats</a></p>
-    <p><a href="webapi/demo/angebotkaufen/1/5">angebotkaufen/1/5</a></p>
-    <p><a href="webapi/demo/angebotkaufen/2/5">angebotkaufen/2/5</a></p>
+    <p><a href="webapi/demo/angebotkaufen/5/5">angebotkaufen/5/5</a></p>
+    <p><a href="webapi/demo/angebotkaufen/5/6">angebotkaufen/5/6</a></p>
+    <p><a href="webapi/demo/angebotkaufen/1/7">angebotkaufen/1/7</a></p>
+    <p><a href="webapi/demo/produziere/2/7">produziere/2/7</a></p>
+    <p><a href="webapi/demo/anbieten/2/6/10">anbieten/2/6/10</a></p>
     <p><a href="webapi/demo/bestand">bestand</a></p>
 </body>
 </html>

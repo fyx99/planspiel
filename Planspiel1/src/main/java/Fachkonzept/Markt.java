@@ -23,7 +23,20 @@ public abstract class  Markt{
 		
 	}
 	
-	public void kaufen(Angebot a, int menge, Simulation s) {
+	public void verkaufen(Angebot a, int menge, Unternehmen vk) {
+		Angebot verbleibendesAngebot = a.kaufen(menge);
+		angebote.remove(a);
+		if(verbleibendesAngebot != null) {
+			angebote.add(verbleibendesAngebot);
+		}
+		vk.umsatz(a.getPreis() * menge);
+		//erziehlt umsatz
+		//bestand muss verringert werden
+		vk.produktEntfernen((Produkt)a.getMarkteinheit(), menge);
+		
+	}
+	
+	public void kaufen(Angebot a, int menge) {
 		Angebot verbleibendesAngebot = a.kaufen(menge);
 		angebote.remove(a);
 		if(verbleibendesAngebot != null) {

@@ -23,6 +23,7 @@ import Fachkonzept.Markteinheit;
 import Fachkonzept.Maschine;
 import Fachkonzept.Maschinenmarkt;
 import Fachkonzept.Material;
+import Fachkonzept.Produkt;
 import Fachkonzept.Spiel;
 import Fachkonzept.Unternehmen;
 import Fachkonzept.Verkaufsmarkt;
@@ -206,12 +207,32 @@ public class DemoService {
 	}
 	
 	@GET
-	@Path("produziere/{menge}/{produktid}")
+	@Path("produziere/{menge}/{maschinenid}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Object produziere(@PathParam("menge") int menge, @PathParam("produktid") int id) {
-		// erstmal bezahlen
-		return null;
+	public Object produziere(@PathParam("menge") int menge, @PathParam("maschinenid") int id) {
+		// erstmal ressourcen verbrauchen
+		//dann produkte zum unternehmen hinzu
+		Maschine m = (Maschine)Markteinheit.findeMarkteinheit(id);
+		Produkt p = m.produziere(menge, s.getNaechstesUnternehmen());
+		return p.getId() + "produziere " + menge + " von " + p.getName() + " in " + m.getName() 
+				+ " deren auslastung " + m.getAuslastung() + " kapazität" + m.getKapazitaet();
 
 	}
 	
+	
+	@GET
+	@Path("anbieten/{menge}/{produktid}/{preis}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Object angebotErstellen(@PathParam("menge") int menge, @PathParam("produktid") int id, @PathParam("preis") int preis) {
+		// erstmal ressourcen verbrauchen
+		//dann produkte zum unternehmen hinzu
+		Produkt p = (Produkt)Markteinheit.findeMarkteinheit(id);
+		Angebot a = new Angebot(p, menge, preis);
+		s.getNaechstesUnternehmen().getVmarkt().anbieten(a);
+		
+		
+		return p.getName() + " angeboten " + menge + " stück für " + preis;
+
+	}
+
 }

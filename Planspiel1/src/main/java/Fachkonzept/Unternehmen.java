@@ -14,6 +14,8 @@ public class Unternehmen {
 	private Verkaufsmarkt vmarkt = new Verkaufsmarkt();
 
 	private Maschinenmarkt mmarkt = new Maschinenmarkt();
+	
+	private float umsatz = 0;
 
 	private Map<String, Integer> maschinen = new HashMap<String, Integer>(); // jeweils mit mengen
 	private Map<String, Integer> materialien = new HashMap<String, Integer>(); // für den anfang string achtung nichts
@@ -25,7 +27,7 @@ public class Unternehmen {
 		this.name = name;
 	}
 
-	private float kapital = 100;
+	private float kapital = 0;
 
 	public float getKapital() {
 		return kapital;
@@ -72,10 +74,10 @@ public class Unternehmen {
 	}
 
 	public void maschineHinzu(Maschine m, Integer menge) {
-		if (this.maschinen.containsKey(m.getClass().getName())) {
-			this.maschinen.replace(m.getClass().getName(), menge + this.maschinen.get(m.getClass().getName()));
+		if (this.maschinen.containsKey(m.getName())) {
+			this.maschinen.replace(m.getName(), menge + this.maschinen.get(m.getName()));
 		} else
-			this.maschinen.putIfAbsent(m.getClass().getName(), menge);
+			this.maschinen.putIfAbsent(m.getName(), menge);
 	}
 
 	public void materialHinzu(Material m, Integer menge) {
@@ -84,12 +86,12 @@ public class Unternehmen {
 		} else
 			this.materialien.putIfAbsent(m.getClass().getName(), menge);
 	}
-	
+
 	public void produktHinzu(Produkt m, Integer menge) {
-		if (this.produkte.containsKey(m.getClass().getName())) {
-			this.produkte.replace(m.getClass().getName(), menge + this.produkte.get(m.getClass().getName()));
+		if (this.produkte.containsKey(m.getName())) {
+			this.produkte.replace(m.getName(), menge + this.produkte.get(m.getName()));
 		} else
-		this.produkte.putIfAbsent(m.getClass().getName(), menge);
+			this.produkte.putIfAbsent(m.getName(), menge);
 	}
 
 	public void maschineEntfernen(Maschine m, Integer menge) {
@@ -98,18 +100,25 @@ public class Unternehmen {
 		}
 	}
 
-	public void materialEntfernen(Material m, Integer menge) {		
+	public void materialEntfernen(Material m, Integer menge) {
 		if (this.materialien.containsKey(m.getClass().getName())) {
-		this.materialien.replace(m.getClass().getName(), this.materialien.get(m.getClass().getName()) - menge);
-	}
+			this.materialien.replace(m.getClass().getName(), this.materialien.get(m.getClass().getName()) - menge);
+		}
 	}
 
-
-
-	public void produktEntfernen(Produkt m, Integer menge) {		
-		if (this.produkte.containsKey(m.getClass().getName())) {
-		this.produkte.replace(m.getClass().getName(), this.produkte.get(m.getClass().getName()) - menge);
+	public void materialEntfernen(String s, Integer menge) {
+		if (this.materialien.containsKey(s)) {
+			this.materialien.replace(s, this.materialien.get(s) - menge);
+		}
 	}
+
+	public void produktEntfernen(Produkt m, Integer menge) {
+		if (this.produkte.containsKey(m.getName()) && this.produkte.get(m.getName()) - menge > 0) {
+			this.produkte.replace(m.getName(), this.produkte.get(m.getName()) - menge);
+		}
+		else if (this.produkte.containsKey(m.getName()) && this.produkte.get(m.getName()) - menge <= 0) {
+			this.produkte.remove(m.getName());
+		}
 	}
 
 	public Map<String, Integer> getMaschinen() {
@@ -134,6 +143,15 @@ public class Unternehmen {
 
 	public void setProdukte(Map<String, Integer> produkte) {
 		this.produkte = produkte;
+	}
+	
+	public void umsatz(float a) {
+		this.umsatz += a;
+	}
+
+	public float getUmsatz() {
+		// TODO Auto-generated method stub
+		return umsatz;
 	}
 
 }

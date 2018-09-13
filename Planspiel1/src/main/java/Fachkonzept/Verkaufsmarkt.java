@@ -12,9 +12,9 @@ public class Verkaufsmarkt extends Markt {
 	}
 	
 	@Override
-	public void kaufen(Angebot a, int menge, Simulation s) {
+	public void kaufen(Angebot a, int menge) {
 		// TODO Auto-generated method stub
-		super.kaufen(a, menge, s);
+		super.kaufen(a, menge);
 
 		//hier kauft nur die simulation, wenn die kauft muss es nirgens gespeichert werden fürn anfang
 	}

@@ -73,7 +73,8 @@ public class Spiel {
 	public String gameStatsHelper() {
 		String k ="";
 		for (int i = 0; i < unternehmen.size(); i++) {
-			k += "U: " + unternehmen.get(i).getName() + " K: " + unternehmen.get(i).getKapital() + "\n";
+			k += "U: " + unternehmen.get(i).getName() + " K: " + unternehmen.get(i).getKapital() + " Umsatz " 
+				+ unternehmen.get(i).getUmsatz() + "\n";
 		}
 		k += ende + "!";
 		return k;
