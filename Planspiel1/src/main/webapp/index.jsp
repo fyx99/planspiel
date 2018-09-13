@@ -16,5 +16,6 @@
     <p><a href="webapi/demo/produziere/2/7">produziere/2/7</a></p>
     <p><a href="webapi/demo/anbieten/2/6/10">anbieten/2/6/10</a></p>
     <p><a href="webapi/demo/bestand">bestand</a></p>
+    <p><a href="webapi/demo/maschinen">maschinen</a></p>
 </body>
 </html>

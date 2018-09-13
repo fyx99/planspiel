@@ -16,7 +16,7 @@ public abstract class Markteinheit {
 		alleMarkteinheiten.add(this);
 	}
 
-	private static List<Markteinheit> alleMarkteinheiten = new ArrayList<>();
+	protected static List<Markteinheit> alleMarkteinheiten = new ArrayList<>();
 	
 	public static Markteinheit findeMarkteinheit(int id) {
 		for (int i = 0; i < alleMarkteinheiten.size(); i++) {

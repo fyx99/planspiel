@@ -50,6 +50,9 @@ public abstract class  Markt{
 	public void anbieten(Angebot a) {
 		angebote.add(a);
 	}
+	public void angebotEntfernen(Angebot a) {
+		angebote.remove(a);
+	}
 	
 	
 	public List<Angebot> getAngebote(){

@@ -1,9 +1,9 @@
 package Fachkonzept;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+
+import DTOs.MaschinenGesamtDTO;
 
 public class Unternehmen {
 
@@ -152,6 +152,18 @@ public class Unternehmen {
 	public float getUmsatz() {
 		// TODO Auto-generated method stub
 		return umsatz;
+	}
+	
+	public Map<String, Integer> zeigeMaterialien(){
+		Map<String, Integer> res = new HashMap<String, Integer>();
+	    for (Map.Entry<String, Integer> ein : this.maschinen.entrySet()) {
+	    	res.put(Maschine.findeMaschine(ein.getKey()).getId() + "", ein.getValue());
+	    }
+	    return res;
+	}
+
+	public MaschinenGesamtDTO zeigeMaschinen() {
+		return new MaschinenGesamtDTO(this.maschinen);
 	}
 
 }

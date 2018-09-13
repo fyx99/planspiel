@@ -72,6 +72,16 @@ public class Maschine extends Markteinheit{
 		u.produktHinzu(this.p, menge);
 		return this.p;
 	}
+	
+	public static Maschine findeMaschine(String name) {
+		for(Markteinheit m : Markteinheit.alleMarkteinheiten) {
+			if(m instanceof Maschine && ((Maschine) m).getName() == name) {
+				return (Maschine)m;
+			}
+		}
+		return null;
+		
+	}
 
 	
 	

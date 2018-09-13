@@ -234,5 +234,42 @@ public class DemoService {
 		return p.getName() + " angeboten " + menge + " stück für " + preis;
 
 	}
+	@GET
+	@Path("angebotentfernen/{angebotsid}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Object angebotEntfernen(@PathParam("angebotsid") int id) {
+		// angebot entfernen
+		
+		Angebot a = Angebot.findeAngebot(id);
+		s.getNaechstesUnternehmen().getVmarkt().angebotEntfernen(a);;
+		
+		
+		return a.getId() + " entfernen ";
 
+	}
+	
+	
+	//für den aktuellen spieler braucht man 
+	//alle maschinen
+	@GET
+	@Path("maschinen")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Object getMaschinen() {
+
+		return s.getNaechstesUnternehmen().zeigeMaschinen();
+
+	}
+	
+	//alle angebote
+	
+	
+	//alle materialien
+	@GET
+	@Path("materialien")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Object getMaterialien() {
+
+		return s.getNaechstesUnternehmen().zeigeMaterialien();
+
+	}
 }
